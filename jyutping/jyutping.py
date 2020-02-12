@@ -25,6 +25,10 @@ def search_single(character):
     return jyp
 
 
+def update_dictionary(update_list):
+    dictionary.update_dictionary(update_list)
+
+    
 def _test(word):
     print(word, get_jyutping(word))
 

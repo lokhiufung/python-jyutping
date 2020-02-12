@@ -26,3 +26,8 @@ Addtional resources
 -----------------
 1. https://jyut.net/query
 2. https://ctext.org/dictionary.pl?if=gb&char=%E3%96%AD
+
+
+Dependencies
+------------
+requests, beautifulSoup4
