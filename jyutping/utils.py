@@ -6,7 +6,7 @@ def get_jyutping_from_api(char, resource='jyut.net'):
     """
     resources:
     1. jyut.net: https://jyut.net/query
-    2. ctext: https://ctext.org/dictionary.pl
+    2. ctext: https://ctext.org/dictionary.pl, too many request per day will be denied
     """
     if resource == 'jyut.net':
         jyut = get_jyutping_from_api_1(char)
@@ -35,16 +35,17 @@ def get_jyutping_from_api_2(char):
     endpoint = base_url + data
     response = requests.get(endpoint)
     soup = BeautifulSoup(response.content, 'html.parser')
-    tag = soup.find('table', class_='info')
-    jyut = tag.find_all('tr')[4].find('td').string
     
-    if jyut is not None:
-        jyut = jyut.split(' ')  # in case more than 1 pronounciation
-        if len(jyut) > 1:
-            jyut = '/'.join(jyut)
-        else:
-            jyut = jyut[0]
-    else:
-        jyut = ''
+    jyut = ''
+    tag = soup.find('table', class_='info')
+    if tag is not None:
+        jyut = tag.find_all('tr')[4].find('td').string
+        
+        if jyut is not None:
+            jyut = jyut.split(' ')  # in case more than 1 pronounciation
+            if len(jyut) > 1:
+                jyut = '/'.join(jyut)
+            else:
+                jyut = jyut[0]
     return jyut
     
