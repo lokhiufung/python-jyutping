@@ -38,7 +38,7 @@ def update_dictionary(update_list):
         updates = []
         for row in update_list:
             updates.append('\t'.join(row))
-        f.write('\n'.join(updates))
+        f.write('\n' + '\n'.join(updates))
         logger.log('Added {} words into dictionary {}'.format(len(updates), dictionary_file))
 
 
