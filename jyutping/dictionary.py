@@ -28,6 +28,7 @@ def load_dictionary():
             CHS_DICT[chs] = jyp
 
 
+@DeprecationWarning
 def update_dictionary(update_list):
     source_path = os.path.dirname(os.path.realpath(__file__))
     data_path = os.path.join(source_path, 'data')
