@@ -21,7 +21,18 @@ Usage
     >>> jyutping.get(u'广东话')  # Python 2
     ['gwong2', 'dung1', 'waa6']
 
-
+    >>> unk_char = '<UNK>'  # label for unknown characters, default '<UNK>'
+    >>> external_dictionary = {
+        '燒': 'siu1',
+        '臘': 'laap6'
+    }
+    >>> jyutping.get(
+        '广东话',
+        external_dictionary=external_dictionary,
+        unk_char=unk_char
+        )
+    ['siu1', 'laap6']
+    
 Addtional resources
 -----------------
 1. https://jyut.net/query
