@@ -27,12 +27,12 @@ Usage
         '臘': 'laap6'
     }
     >>> jyutping.get(
-        '广东话',
+        '燒臘',
         external_dictionary=external_dictionary,
         unk_char=unk_char
         )
     ['siu1', 'laap6']
-    
+
 Addtional resources
 -----------------
 1. https://jyut.net/query
